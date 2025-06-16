@@ -1,0 +1,178 @@
+/* 数据页面专用样式 */
+/* 数据页面顶部横幅 */
+.data-hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 5rem 2rem;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.data-hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.data-hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* 图表网格布局 */
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.chart-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+}
+
+.chart-card h4 {
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.chart-container {
+    height: 300px;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.chart-info {
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.chart-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* 数据洞察部分 */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.insight-card {
+    background: var(--light-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.insight-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.5rem;
+}
+
+.insight-card:nth-child(2) .insight-icon {
+    background: var(--secondary-color);
+}
+
+.insight-card:nth-child(3) .insight-icon {
+    background: var(--accent-color);
+}
+
+.insight-card:nth-child(4) .insight-icon {
+    background: #5d9cec;
+}
+
+.insight-card h4 {
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.insight-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 研究方法部分 */
+.methodology-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.methodology-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+}
+
+.methodology-card h4 {
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+    position: relative;
+}
+
+.methodology-card h4::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.methodology-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.methodology-card li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.methodology-card li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* 地区特定颜色 */
+.upper-east-color {
+    background: var(--primary-color);
+}
+
+.upper-west-color {
+    background: var(--secondary-color);
+}
+
+.midtown-color {
+    background: var(--accent-color);
+}
+
+.downtown-color {
+    background: #5d9cec;
+}
+
+.chinatown-color {
+    background: #ff5733;
+}

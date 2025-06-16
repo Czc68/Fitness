@@ -1,0 +1,780 @@
+
+body {
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    padding-top: 70px;
+}
+
+
+
+.logo h1 {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* 轮播图样式 */
+.carousel {
+    position: relative;
+    max-width: 1200px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    height: 500px;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+.carousel-item:nth-child(1) {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+}
+
+.carousel-item:nth-child(2) {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../images/Fitness_Nutrition.jpg');
+    background-size:cover;
+}
+
+.carousel-item:nth-child(3) {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../images/push-up.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.carousel-item:nth-child(4) {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+    color: white;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.carousel-caption h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.video-link {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.video-link:hover {
+    background: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+}
+
+.video-link i {
+    margin-left: 8px;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+    padding: 0 20px;
+}
+
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: #2c3e50;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #3498db;
+    transform: scale(1.2);
+}
+
+/* 导航标签样式 */
+.case-study-nav {
+    background: white;
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.case-study-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.case-study-nav li {
+    margin: 0.5rem 1rem;
+}
+
+.case-study-nav a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.case-study-nav a:hover, .case-study-nav a.active {
+    background: #3498db;
+    color: white;
+}
+
+.case-study-nav .disabled-link {
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+/* 卡片网格样式 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.case-study-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.case-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.case-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.case-card-image {
+    height: 200px;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    
+}
+
+.case-card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.case-card-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: #e74c3c;
+    color: white;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+}
+
+.case-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    color: #2c3e50;
+}
+
+.case-card p {
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.case-card-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: #eaf2f8;
+    transform: translateY(-3px);
+}
+
+.stat-item h4 {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-bottom: 0.25rem;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.case-card-link {
+    display: inline-flex;
+    align-items: center;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: auto;
+    transition: all 0.3s ease;
+}
+
+.case-card-link:hover {
+    color: #2980b9;
+    transform: translateX(5px);
+}
+
+.case-card-link i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.case-card-link:hover i {
+    transform: translateX(3px);
+}
+
+/* 概述部分样式 */
+.case-study-overview {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.overview-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.overview-header h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.overview-header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+.overview-content p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.overview-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stat-box {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-box h3 {
+    font-size: 2.2rem;
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+.stat-box p {
+    color: #7f8c8d;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* 详细内容样式 */
+.case-study-detail {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.case-study-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.case-study-header h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 0.75rem;
+}
+
+.case-study-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.case-study-meta span {
+    display: flex;
+    align-items: center;
+    color: #7f8c8d;
+}
+
+.case-study-meta i {
+    margin-right: 0.5rem;
+    color: #3498db;
+}
+
+.case-study-content {
+    line-height: 1.7;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.case-study-content h3 {
+    color: #2c3e50;
+    margin: 1.5rem 0 0.75rem;
+    font-size: 1.6rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+}
+
+.case-study-content p {
+    margin-bottom: 1.2rem;
+    color: #444;
+    font-size: 1.05rem;
+}
+
+.case-study-image {
+    height: 400px;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    border-radius: 12px;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.key-findings {
+    background: #eaf7ff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    border-left: 4px solid #3498db;
+}
+
+.key-findings h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.key-findings ul {
+    list-style: none;
+    padding: 0;
+}
+
+.key-findings li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #2c3e50;
+}
+
+.key-findings li::before {
+    content: '•';
+    color: #3498db;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -3px;
+}
+
+.video-recommendations {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.video-item a {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.video-item a:hover {
+    background: #eaf2f8;
+    transform: translateX(5px);
+}
+
+.video-item i {
+    color: #3498db;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.video-item a:hover i {
+    transform: scale(1.2);
+}
+
+/* 页脚样式 */
+.enhanced-footer {
+    background: linear-gradient(135deg, #2c3e50, #1a2a3a);
+    color: #ecf0f1;
+    padding: 3rem 1rem 1rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: white;
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-section h3 i {
+    color: #3498db;
+}
+
+.footer-section.about p {
+    margin-bottom: 1.2rem;
+    color: #bdc3c7;
+    line-height: 1.7;
+}
+
+.contact p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    color: #bdc3c7;
+}
+
+.contact i {
+    color: #3498db;
+    margin-right: 0.8rem;
+    width: 20px;
+}
+
+.footer-section.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section.links ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section.links ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 0.3rem 0;
+}
+
+.footer-section.links ul li a:hover {
+    color: #3498db;
+    padding-left: 8px;
+}
+
+.footer-section.social .social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section.social .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.footer-section.social .social-icons a:hover {
+    background: #3498db;
+    transform: translateY(-5px);
+}
+
+.subscribe-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background: #3498db;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.subscribe-link:hover {
+    background: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.subscribe-link i {
+    margin-right: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+}
+
+.footer-bottom p {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .carousel {
+        height: 400px;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+        display: none;
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .carousel {
+        height: 350px;
+        margin: 1rem auto;
+    }
+    
+    .carousel-caption {
+        padding: 20px;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 1.6rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+    
+    .case-study-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .case-study-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .overview-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel {
+        height: 300px;
+    }
+    
+    .carousel-caption {
+        bottom: 15%;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 1.4rem;
+    }
+    
+    .video-link {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    
+    .case-study-meta {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}

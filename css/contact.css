@@ -1,0 +1,245 @@
+
+:root {
+    --primary-bg: #ff5b79;
+    --form-bg: #f5f5f5;
+    --border-radius: 8px;
+}
+
+
+.fitness-banner {
+    background: var(--primary-color);
+    padding: 7rem 1.5rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.banner-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.banner-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+
+.fitness-cost {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.cost-table {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.cost-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.cost-table th,
+.cost-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.cost-table th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.cost-table td i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+
+.cost-extra {
+    background: #f8f9fa;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.cost-extra h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cost-extra ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cost-extra li {
+    padding: 0.8rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.cost-extra li:last-child {
+    border-bottom: none;
+}
+
+.cost-extra li i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+
+.expert-tips {
+    background: var(--light-color);
+    padding: 2rem 1.5rem;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+}
+
+.tips-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.tips-header h3 {
+    font-size: 1.8rem;
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+.tips-header h3::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 50%;
+    background: var(--primary-color);
+    bottom: 0;
+    left: 25%;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.tip-item {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+}
+
+.tip-icon {
+    background: rgba(255, 133, 162, 0.1);
+    color: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tip-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-color);
+}
+
+.tip-content p {
+    color: var(--dark-color);
+    line-height: 1.5;
+}
+
+
+.contact-form {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background: var(--form-bg);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-validation-message {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    font-size: 0.85rem;
+    color: #ff4444;
+}

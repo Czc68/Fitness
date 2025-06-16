@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/case-study.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <h1><i class="fas fa-dumbbell"></i>Studies</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="contact.html">Fitness News</a></li>
+                <li><a href="data.html">Data Analysis</a></li>
+                <li><a href="study.html" class="active">Studies</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <main>
+        <!-- 轮播图部分 -->
+        <div class="carousel">
+            <div class="carousel-inner">
+                <!-- 轮播图项目1 -->
+                <div class="carousel-item active">
+                    
+                    <div class="carousel-caption">
+                        <h3>科学健身入门指南</h3>
+                        <p>B站版《健身新手的训练完全手册》</p>
+                        <a href="https://www.bilibili.com/video/BV1Hk4y187jF/?spm_id_from=333.337.search-card.all.click&vd_source=2e67b358d275223eab2d32ef68233959" target="_blank" class="video-link">观看视频 <i class="fas fa-play-circle"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 轮播图项目2 -->
+                <div class="carousel-item">
+                    
+                    <div class="carousel-caption">
+                        <h3>健身营养学基础</h3>
+                        <p>运动营养基础知识与应用——伊木清</p>
+                        <a href="https://www.bilibili.com/video/BV1gV4y1F79Y/?spm_id_from=333.337.search-card.all.click&vd_source=2e67b358d275223eab2d32ef68233959" target="_blank" class="video-link">观看视频 <i class="fas fa-play-circle"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 轮播图项目3 -->
+                <div class="carousel-item">
+                    
+                    <div class="carousel-caption">
+                        <h3>家庭健身计划</h3>
+                        <p>@FitMen六六居家&nbsp;健身达人分享无需器械的全身训练方案</p>
+                        <a href="https://www.bilibili.com/video/BV1Gy4y1n7Pv/?spm_id_from=333.337.search-card.all.click&vd_source=2e67b358d275223eab2d32ef68233959" target="_blank" class="video-link">观看视频 <i class="fas fa-play-circle"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 轮播图项目4 -->
+                <div class="carousel-item">
+                    
+                    <div class="carousel-caption">
+                        <h3>瑜伽与身心健康</h3>
+                        <p>@WithEric&nbsp;静心生活分享减压瑜伽动作</p>
+                        <a href="https://www.bilibili.com/video/BV16W4y1E77t/?spm_id_from=333.337.search-card.all.click&vd_source=2e67b358d275223eab2d32ef68233959" target="_blank" class="video-link">观看视频 <i class="fas fa-play-circle"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 轮播图控制按钮 -->
+            <div class="carousel-controls">
+                <button class="carousel-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- 轮播图指示器 -->
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
+
+        <nav class="case-study-nav">
+            <ul>
+                <li><a href="#overview" class="active">科普总览</a></li>
+                <li><a href="#training">训练方法</a></li>
+                <li><a href="#nutrition">营养知识</a></li>
+                <li><a href="#recovery">恢复技巧</a></li>
+                <li><a href="#myths">健身误区</a></li>
+            </ul>
+        </nav>
+
+        <section class="container">
+            <div class="case-study-grid">
+                <div class="case-card">
+                    <div class="case-card-image">
+                        <img src="images\16_9 力量训练原理.jpg" alt="力量训练" style="width:100%;height:auto;border-radius:8px;">
+                    </div>
+                    <div class="case-card-content">
+                        <span class="case-card-tag">训练方法</span>
+                        <h3>力量训练的科学原理</h3>
+                        <p>了解肌肉生长的生理机制和高效训练方法，避免常见错误</p>
+                        <div class="case-card-stats">
+                            <div class="stat-item">
+                                <h4>12</h4>
+                                <p>科普视频</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>5</h4>
+                                <p>专业教练</p>
+                            </div>
+                        </div>
+                        <a href="#training" class="case-card-link">开始学习<i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-card-image">
+                    <img src="images\16_9 健身营养学基础.jpg" alt="力量训练" style="width:100%;height:auto;border-radius:8px;">
+
+                    </div>
+                    <div class="case-card-content">
+                        <span class="case-card-tag">营养知识</span>
+                        <h3>健身营养学基础</h3>
+                        <p>蛋白质、碳水化合物和脂肪在健身中的作用与科学配比</p>
+                        <div class="case-card-stats">
+                            <div class="stat-item">
+                                <h4>8</h4>
+                                <p>科普视频</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>3</h4>
+                                <p>营养专家</p>
+                            </div>
+                        </div>
+                        <a href="#nutrition" class="case-card-link">开始学习<i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-card-image">
+                      <img src="images\16_9  运动后的科学恢复.jpg" alt="力量训练" style="width:100%;height:auto;border-radius:8px;">
+                      
+                    </div>
+                    <div class="case-card-content">
+                        <span class="case-card-tag">恢复技巧</span>
+                        <h3>运动后的科学恢复</h3>
+                        <p>睡眠、拉伸和恢复技术对运动表现的影响</p>
+                        <div class="case-card-stats">
+                            <div class="stat-item">
+                                <h4>6</h4>
+                                <p>科普视频</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>98%</h4>
+                                <p>学员反馈</p>
+                            </div>
+                        </div>
+                        <a href="#recovery" class="case-card-link">开始学习<i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="overview" class="case-study-overview">
+            <div class="overview-header">
+                <h2>健身科普知识总览</h2>
+                <p>科学健身的基础知识与常见误区</p>
+            </div>
+            <div class="overview-content">
+                <p>健身不仅仅是锻炼身体，更是一门科学。我们的科普内容涵盖训练方法、营养学、恢复技巧和常见误区，帮助您建立科学的健身观念，避免常见的训练错误。</p>
+                <div class="overview-stats">
+                    <div class="stat-box">
+                        <h3>50+</h3>
+                        <p>科普视频</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>15</h3>
+                        <p>专业教练</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>200K</h3>
+                        <p>订阅用户</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>98%</h3>
+                        <p>好评率</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="training" class="case-study-detail">
+            <div class="case-study-header">
+                <h2>力量训练的科学原理</h2>
+                <div class="case-study-meta">
+                    <span><i class="fas fa-user"></i> 主讲: 王教练</span>
+                    <span><i class="fas fa-calendar"></i> 2023年更新</span>
+                    <span><i class="fas fa-clock"></i> 12个视频</span>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-image">
+                    <img src="images/16_9 力量训练原理.jpg" alt="力量训练的科学原理" style="width:100%;height:auto;border-radius:8px;">
+                </div>
+
+                <h3>内容简介</h3>
+                <p>本系列视频详细讲解了力量训练的科学原理，包括肌肉生长的生理机制、不同训练方法的效果比较、以及如何根据个人目标制定训练计划。</p>
+
+                <div class="key-findings">
+                    <h4>核心知识点</h4>
+                    <ul>
+                        <li>肌肉生长的三大机制：机械张力、代谢压力和肌肉损伤</li>
+                        <li>不同训练次数范围的效果：肌耐力 vs 肌肥大 vs 最大力量</li>
+                        <li>训练频率与恢复时间的科学配比</li>
+                        <li>渐进超负荷原则的实际应用方法</li>
+                    </ul>
+                </div>
+
+                <h3>推荐视频</h3>
+                <div class="video-recommendations">
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1Hk4y187jF/?spm_id_from=333.337.search-card.all.click&vd_source=2e67b358d275223eab2d32ef68233959" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>新手力量训练入门指南</span>
+                        </a>
+                    </div>
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1Hd4y1H7Lu/?spm_id_from=333.337.search-card.all.click&vd_source=2e67b358d275223eab2d32ef68233959" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>五大复合动作详解</span>
+                        </a>
+                    </div>
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1DCJnzGE93/?spm_id_from=333.337.search-card.all.click" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>如何突破训练平台期</span>
+                        </a>
+                    </div>
+                </div>
+
+                <h3>学习成果</h3>
+                <p>完成本系列学习后，您将能够：</p>
+                <ul>
+                    <li>理解不同训练方法背后的科学原理</li>
+                    <li>为自己制定个性化的力量训练计划</li>
+                    <li>避免常见的训练错误和受伤风险</li>
+                    <li>有效评估训练效果并适时调整计划</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="nutrition" class="case-study-detail">
+            <div class="case-study-header">
+                <h2>健身营养知识</h2>
+                <div class="case-study-meta">
+                    <span><i class="fas fa-user"></i> 主讲: 李营养师</span>
+                    <span><i class="fas fa-calendar"></i> 2023年更新</span>
+                    <span><i class="fas fa-clock"></i> 8个视频</span>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-image">
+        <img src="images/16_9 健身营养学基础.jpg" alt="健身营养知识" style="width:100%;height:auto;border-radius:8px;">
+                </div>
+
+                <h3>内容简介</h3>
+                <p>本系列视频深入讲解健身过程中的营养知识，包括三大宏量营养素（蛋白质、碳水化合物、脂肪）的作用、科学配比，以及维生素、矿物质等微量营养素的重要性。同时，还会介绍不同健身阶段（增肌、减脂、维持）的饮食策略。</p>
+
+                <div class="key-findings">
+                    <h4>核心知识点</h4>
+                    <ul>
+                        <li>蛋白质是肌肉修复和生长的关键，优质蛋白质来源包括鸡胸肉、鱼、豆类等。</li>
+                        <li>碳水化合物是运动的主要能量来源，选择复合碳水化合物（如全麦面包、糙米）有助于维持稳定的血糖水平。</li>
+                        <li>脂肪虽然热量高，但健康的脂肪（如不饱和脂肪）对身体正常功能至关重要，可从橄榄油、坚果中获取。</li>
+                        <li>根据个人的健身目标和身体状况，合理调整三大营养素的摄入比例。</li>
+                        <li>运动前后的饮食安排对提高运动表现和促进恢复有重要影响。</li>
+                    </ul>
+                </div>
+
+                <h3>推荐视频</h3>
+                <div class="video-recommendations">
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1gV4y1F79Y/?spm_id_from=333.337.search-card.all.click&vd_source=2e67b358d275223eab2d32ef68233959" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>运动营养基础知识与应用</span>
+                        </a>
+                    </div>
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1yX4y1q7LP/?spm_id_from=333.337.search-card.all.click" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>不同健身阶段的饮食计划</span>
+                        </a>
+                    </div>
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1yf421v7wM/?spm_id_from=333.337.search-card.all.click" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>健身中的营养补充剂使用</span>
+                        </a>
+                    </div>
+                </div>
+
+                <h3>学习成果</h3>
+                <p>完成本系列学习后，您将能够：</p>
+                <ul>
+                    <li>了解各种营养素在健身中的作用和需求。</li>
+                    <li>制定适合自己健身目标的饮食计划。</li>
+                    <li>正确选择和搭配食物，提高营养摄入的质量。</li>
+                    <li>认识到营养补充剂的合理使用方法。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="recovery" class="case-study-detail">
+            <div class="case-study-header">
+                <h2>运动恢复技巧</h2>
+                <div class="case-study-meta">
+                    <span><i class="fas fa-user"></i> 主讲: 张康复师</span>
+                    <span><i class="fas fa-calendar"></i> 2023年更新</span>
+                    <span><i class="fas fa-clock"></i> 6个视频</span>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-image">
+                    <img src="images/16_9  运动后的科学恢复.jpg" alt="运动恢复技巧" style="width:100%;height:auto;border-radius:8px;">
+                </div>
+
+                <h3>内容简介</h3>
+                <p>本系列视频主要介绍运动后的恢复技巧，包括睡眠、拉伸、按摩、营养补充等方面，帮助您更快地从运动疲劳中恢复，减少运动损伤的风险，提高运动表现。</p>
+
+                <div class="key-findings">
+                    <h4>核心知识点</h4>
+                    <ul>
+                        <li>充足的睡眠是身体恢复的关键，每晚应保证7-9小时的高质量睡眠。</li>
+                        <li>运动后进行有效的拉伸可以缓解肌肉紧张，增加关节灵活性，减少肌肉酸痛。</li>
+                        <li>按摩和泡沫轴放松可以促进血液循环，加速代谢废物的排出。</li>
+                        <li>合理的营养补充，特别是蛋白质和碳水化合物，有助于修复受损肌肉和补充能量。</li>
+                        <li>适当的休息和调整训练计划，避免过度训练。</li>
+                    </ul>
+                </div>
+
+                <h3>推荐视频</h3>
+                <div class="video-recommendations">
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1Yf4y1z76H/?spm_id_from=333.337.search-card.all.click" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>运动后的拉伸技巧</span>
+                        </a>
+                    </div>
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1nm4y1t7t5/?spm_id_from=333.337.search-card.all.click" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>睡眠与运动恢复</span>
+                        </a>
+                    </div>
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1H34y1Q7TA/?spm_id_from=333.337.search-card.all.click" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>泡沫轴放松的正确方法</span>
+                        </a>
+                    </div>
+                </div>
+
+                <h3>学习成果</h3>
+                <p>完成本系列学习后，您将能够：</p>
+                <ul>
+                    <li>掌握有效的运动恢复方法和技巧。</li>
+                    <li>养成良好的睡眠和休息习惯，促进身体恢复。</li>
+                    <li>正确进行拉伸、按摩和使用泡沫轴放松。</li>
+                    <li>根据运动强度和类型，合理调整恢复策略。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="myths" class="case-study-detail">
+            <div class="case-study-header">
+                <h2>健身常见误区</h2>
+                <div class="case-study-meta">
+                    <span><i class="fas fa-user"></i> 主讲: 赵教练</span>
+                    <span><i class="fas fa-calendar"></i> 2023年更新</span>
+                    <span><i class="fas fa-clock"></i> 5个视频</span>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-image">
+                    <img src="images/16_9 健身常见误区.jpg" alt="健身常见误区" style="width:100%;height:auto;border-radius:8px;">
+                </div>
+
+                <h3>内容简介</h3>
+                <p>本系列视频将为您揭示健身过程中常见的误区，如错误的训练方法、不合理的饮食观念、不科学的恢复方式等，帮助您避免这些误区，提高健身效果。</p>
+
+                <div class="key-findings">
+                    <h4>核心知识点</h4>
+                    <ul>
+                        <li>误区一：只做有氧运动就能减脂，忽略力量训练。实际上，力量训练可以增加肌肉量，提高基础代谢率，更有利于长期减脂。</li>
+                        <li>误区二：运动后马上洗澡。运动后身体血液循环加快，马上洗澡可能会导致血压下降、头晕等不适症状，应休息一段时间后再洗澡。</li>
+                        <li>误区三：过度依赖蛋白粉等营养补充剂。营养补充剂只是辅助手段，不能替代正常饮食，应在保证合理饮食的基础上适当使用。</li>
+                        <li>误区四：训练强度越大越好。过度训练可能会导致身体疲劳、受伤，应根据自己的身体状况和能力合理安排训练强度。</li>
+                        <li>误区五：不吃早餐能减肥。不吃早餐会导致新陈代谢减慢，身体更容易储存脂肪，而且可能会在午餐时过度进食。</li>
+                    </ul>
+                </div>
+
+                <h3>推荐视频</h3>
+                <div class="video-recommendations">
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1bw4m1m7vB/?spm_id_from=333.337.search-card.all.click" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>打破健身减脂误区</span>
+                        </a>
+                    </div>
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1Tmf2YeETQ/?spm_id_from=333.337.search-card.all.click" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>训练强度与恢复的平衡</span>
+                        </a>
+                    </div>
+                    <div class="video-item">
+                        <a href="https://www.bilibili.com/video/BV1JE411j7Ua/?spm_id_from=333.337.search-card.all.click" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                            <span>营养补充剂的正确使用</span>
+                        </a>
+                    </div>
+                </div>
+
+                <h3>学习成果</h3>
+                <p>完成本系列学习后，您将能够：</p>
+                <ul>
+                    <li>识别并避免健身过程中的常见误区。</li>
+                    <li>树立科学的健身观念和方法。</li>
+                    <li>根据自己的情况调整训练和饮食计划，提高健身效果。</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+<footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3><i class="fas fa-dumbbell"></i>Connect With Us</h3>
+                <p>If you have some good idea Welcome to send things to me</p>
+                <div class="contact">
+                    <p><i class="fas fa-envelope"></i> 3020385272@qq.com</p>
+                    <p><i class="fas fa-phone"></i>133****6051</p>
+                </div>
+            </div>
+            
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="contact.html">Fitness News</a></li>
+                    <li><a href="data.html">Data Analysis</a></li>
+                    <li><a href="study.html">Studies</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section social">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                        <a href="weixin://dl/chat" class="social-icon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://weibo.com/u/8005170072" target="_blank" class="social-icon"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-qq"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                <p class="subscription">
+                    <a href="contact.html#subscribe" class="subscribe-link">
+                        <i class="fas fa-paper-plane"></i> Subscribe to Newsletter
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;2025 inspire yourself to workout, work hard, work wonders.</p>
+        </div>
+    </footer>
+
+ <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 轮播图JavaScript功能
+            const carouselInner = document.querySelector('.carousel-inner');
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            let currentIndex = 0;
+            const itemCount = carouselItems.length;
+
+            // 更新轮播图状态
+            function updateCarousel() {
+                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // 更新指示器状态
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentIndex);
+                });
+
+                // 更新项目状态
+                carouselItems.forEach((item, index) => {
+                    item.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            // 下一张
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % itemCount;
+                updateCarousel();
+            }
+
+            // 上一张
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+                updateCarousel();
+            }
+
+            // 绑定事件
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // 指示器点击事件
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+
+            // 自动轮播
+            setInterval(nextSlide, 5000);
+
+            // 实现导航标签的active状态切换
+            const navLinks = document.querySelectorAll('.case-study-nav a');
+            const sections = [];
+
+            navLinks.forEach(link => {
+                const sectionId = link.getAttribute('href').substring(1);
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    sections.push(section);
+                }
+            });
+
+            function setActiveLink() {
+                let currentSection = null;
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        currentSection = section;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                if (currentSection) {
+                    const activeLink = document.querySelector(`.case-study-nav a[href="#${currentSection.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            }
+
+            // 监听滚动事件
+            window.addEventListener('scroll', setActiveLink);
+
+            // 监听导航标签点击事件
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href').substring(1);
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                        window.scrollTo({
+                            top: section.offsetTop,
+                            behavior: 'smooth'
+                        });
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            // 初始调用一次，确保页面加载时状态正确
+            setActiveLink();
+        });
+    </script>
+</body>
+</html>

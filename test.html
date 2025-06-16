@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <h1>健身打卡系统 - API测试页面</h1>
+    
+    <div class="test-section">
+        <h3>1. 测试登录API</h3>
+        <p>测试用户登录功能</p>
+        <button class="test-button" onclick="testLogin()">测试登录</button>
+        <div id="login-result" class="result" style="display: none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>2. 测试用户信息API</h3>
+        <p>测试获取用户信息功能</p>
+        <button class="test-button" onclick="testUserInfo()">测试用户信息</button>
+        <div id="userinfo-result" class="result" style="display: none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>3. 测试打卡历史API</h3>
+        <p>测试获取打卡历史功能</p>
+        <button class="test-button" onclick="testCheckinHistory()">测试打卡历史</button>
+        <div id="history-result" class="result" style="display: none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>4. 测试提交打卡API</h3>
+        <p>测试提交打卡功能</p>
+        <button class="test-button" onclick="testSubmitCheckin()">测试提交打卡</button>
+        <div id="submit-result" class="result" style="display: none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>5. 测试统计数据API</h3>
+        <p>测试获取统计数据功能</p>
+        <button class="test-button" onclick="testStats()">测试统计数据</button>
+        <div id="stats-result" class="result" style="display: none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>6. 系统状态检查</h3>
+        <p>检查后端服务是否正常运行</p>
+        <button class="test-button" onclick="checkSystemStatus()">检查系统状态</button>
+        <div id="status-result" class="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        let currentToken = null;
+
+        function showResult(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = `result ${type}`;
+            element.style.display = 'block';
+        }
+
+        function getAuthHeader() {
+            return currentToken ? `Bearer ${currentToken}` : '';
+        }
+
+        async function testLogin() {
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: 'testuser',
+                        password: '123456'
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentToken = data.token;
+                    showResult('login-result', 
+                        `登录成功！\n用户: ${data.user.fullName}\nToken: ${data.token.substring(0, 20)}...`, 
+                        'success');
+                } else {
+                    showResult('login-result', 
+                        `登录失败: ${data.message}`, 
+                        'error');
+                }
+            } catch (error) {
+                showResult('login-result', 
+                    `网络错误: ${error.message}`, 
+                    'error');
+            }
+        }
+
+        async function testUserInfo() {
+            if (!currentToken) {
+                showResult('userinfo-result', '请先登录', 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/user/info', {
+                    headers: {
+                        'Authorization': getAuthHeader()
+                    }
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    showResult('userinfo-result', 
+                        `获取用户信息成功！\n用户ID: ${data.user.userId}\n用户名: ${data.user.username}\n姓名: ${data.user.fullName}`, 
+                        'success');
+                } else {
+                    showResult('userinfo-result', 
+                        `获取用户信息失败: ${data.message}`, 
+                        'error');
+                }
+            } catch (error) {
+                showResult('userinfo-result', 
+                    `网络错误: ${error.message}`, 
+                    'error');
+            }
+        }
+
+        async function testCheckinHistory() {
+            if (!currentToken) {
+                showResult('history-result', '请先登录', 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/checkins/history', {
+                    headers: {
+                        'Authorization': getAuthHeader()
+                    }
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    const checkins = data.checkins || [];
+                    showResult('history-result', 
+                        `获取打卡历史成功！\n共找到 ${checkins.length} 条记录`, 
+                        'success');
+                } else {
+                    showResult('history-result', 
+                        `获取打卡历史失败: ${data.message}`, 
+                        'error');
+                }
+            } catch (error) {
+                showResult('history-result', 
+                    `网络错误: ${error.message}`, 
+                    'error');
+            }
+        }
+
+        async function testSubmitCheckin() {
+            if (!currentToken) {
+                showResult('submit-result', '请先登录', 'error');
+                return;
+            }
+
+            try {
+                const checkinData = {
+                    weight: 70.5,
+                    sleep_hours: 7.5,
+                    water_cups: 8,
+                    steps: 10000,
+                    mood: 'Good',
+                    completed_plan_today: true,
+                    general_notes: '测试打卡记录'
+                };
+
+                const response = await fetch('/api/checkins/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': getAuthHeader()
+                    },
+                    body: JSON.stringify(checkinData)
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    showResult('submit-result', 
+                        `提交打卡成功！\n打卡ID: ${data.checkin.checkinId}`, 
+                        'success');
+                } else {
+                    showResult('submit-result', 
+                        `提交打卡失败: ${data.message}`, 
+                        'error');
+                }
+            } catch (error) {
+                showResult('submit-result', 
+                    `网络错误: ${error.message}`, 
+                    'error');
+            }
+        }
+
+        async function testStats() {
+            if (!currentToken) {
+                showResult('stats-result', '请先登录', 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/checkins/stats', {
+                    headers: {
+                        'Authorization': getAuthHeader()
+                    }
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    const stats = data.stats;
+                    showResult('stats-result', 
+                        `获取统计数据成功！\n总打卡天数: ${stats.totalCheckins}\n连续打卡天数: ${stats.currentStreak}\n平均体重: ${stats.avgWeight || '无数据'}\n平均睡眠: ${stats.avgSleep || '无数据'}`, 
+                        'success');
+                } else {
+                    showResult('stats-result', 
+                        `获取统计数据失败: ${data.message}`, 
+                        'error');
+                }
+            } catch (error) {
+                showResult('stats-result', 
+                    `网络错误: ${error.message}`, 
+                    'error');
+            }
+        }
+
+        async function checkSystemStatus() {
+            try {
+                const response = await fetch('/api/auth/validate', {
+                    method: 'GET'
+                });
+
+                if (response.ok) {
+                    showResult('status-result', 
+                        '后端服务运行正常！\n可以正常接收API请求', 
+                        'success');
+                } else {
+                    showResult('status-result', 
+                        `后端服务响应异常，状态码: ${response.status}`, 
+                        'error');
+                }
+            } catch (error) {
+                showResult('status-result', 
+                    `无法连接到后端服务: ${error.message}\n请确保后端服务已启动并运行在 http://localhost:8080`, 
+                    'error');
+            }
+        }
+
+        // 页面加载时自动检查系统状态
+        window.addEventListener('load', function() {
+            checkSystemStatus();
+        });
+    </script>
+</body>
+</html> 

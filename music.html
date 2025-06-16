@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/about.css">en
+    <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -41,47 +41,9 @@
                 <h2><i class="fas fa-headphones-alt"></i> 精选歌单推荐</h2>
                 <p>根据运动强度定制的音乐清单，提升训练表现</p>
             </div>
-              <audio id="audio-player" controls style="width:100%;margin-bottom:16px;display:none;"></audio>
+            <audio id="audio-player" controls style="width:100%;margin-bottom:16px;display:none;"></audio>
 
             <div class="music-grid">
-             
-                <script>
-                    // 歌曲文件映射（示例，需替换为实际音频文件路径）
-                    const songMap = {
-                        // 中文歌单
-                        "逆战 - 张杰": "audio/zhangjie-nizhan.mp3",
-                        "龙拳 - 周杰伦": "audio/zhoujielun-longquan.mp3",
-                        "孤勇者 - 陈奕迅": "audio/chenyixun-guyongzhe.mp3",
-                        "倔强 - 五月天": "audio/mayday-juejiang.mp3",
-                        "相信自己 - 零点乐队": "audio/lingdian-xiangxin.mp3",
-                        // 英文歌单
-                        "Lie - NF": "audio/NF - Lie.mp3",
-                        "Call You Tonight - Whitney Houston": "audio/Whitney Houston - Call You Tonight.mp3",
-                        "iPad - The Chainsmokers": "audio/The Chainsmokers - iPad.mp3",
-                        "Don’t Wake Me Up - Jonas Blue": "audio/Jonas Blue - Don’t Wake Me Up.mp3",
-                        "Ready Yet - Mokita": "audio/Mokita - Ready Yet.mp3"
-                    };
-
-                    document.addEventListener('DOMContentLoaded', function() {
-                        // 歌曲名单元格绑定点击事件
-                        document.querySelectorAll('.track-list table td:first-child').forEach(td => {
-                            td.style.cursor = 'pointer';
-                            td.style.color = '#007bff';
-                            td.addEventListener('click', function() {
-                                const songName = td.textContent.replace(/^\d+\.\s*/, '');
-                                const audioSrc = songMap[songName];
-                                if (audioSrc) {
-                                    const audio = document.getElementById('audio-player');
-                                    audio.src = audioSrc;
-                                    audio.style.display = 'block';
-                                    audio.play();
-                                } else {
-                                    alert('音频文件未找到');
-                                }
-                            });
-                        });
-                    });
-                </script>
                 <!-- 中文歌单 -->
                 <div class="playlist-card fade-in">
                     <div class="card-header chinese-header">
@@ -89,54 +51,10 @@
                     </div>
                     <div class="card-content">
                         <div class="cover-container">
-                            <img src="images\微信图片_20250611201832.jpg" alt="中文歌单封面" class="playlist-cover">
+                            <img src="images/微信图片_20250611201832.jpg" alt="中文歌单封面" class="playlist-cover">
                             <div class="play-btn" id="chinese-play-btn" style="cursor:pointer;">
                                 <i class="fas fa-play"></i>
                             </div>
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    const playBtn = document.getElementById('chinese-play-btn');
-                                    const audio = document.getElementById('audio-player');
-                                    // 默认播放第一首中文歌
-                                    const defaultSong = "逆战 - 张杰";
-                                    playBtn.addEventListener('click', function() {
-                                        // 如果当前不是该歌，切换到该歌
-                                        if (audio.src.indexOf(songMap[defaultSong]) === -1) {
-                                            audio.src = songMap[defaultSong];
-                                            audio.style.display = 'block';
-                                            audio.play();
-                                            playBtn.querySelector('i').classList.remove('fa-play');
-                                            playBtn.querySelector('i').classList.add('fa-pause');
-                                        } else if (audio.paused) {
-                                            audio.play();
-                                            playBtn.querySelector('i').classList.remove('fa-play');
-                                            playBtn.querySelector('i').classList.add('fa-pause');
-                                        } else {
-                                            audio.pause();
-                                            playBtn.querySelector('i').classList.remove('fa-pause');
-                                            playBtn.querySelector('i').classList.add('fa-play');
-                                        }
-                                    });
-                                    // 音频播放/暂停时同步按钮图标
-                                    audio.addEventListener('play', function() {
-                                        if (audio.src.indexOf(songMap[defaultSong]) !== -1) {
-                                            playBtn.querySelector('i').classList.remove('fa-play');
-                                            playBtn.querySelector('i').classList.add('fa-pause');
-                                        }
-                                    });
-                                    audio.addEventListener('pause', function() {
-                                        if (audio.src.indexOf(songMap[defaultSong]) !== -1) {
-                                            playBtn.querySelector('i').classList.remove('fa-pause');
-                                            playBtn.querySelector('i').classList.add('fa-play');
-                                        }
-                                    });
-                                    // 如果切换到其他歌曲，重置按钮为播放
-                                    audio.addEventListener('ended', function() {
-                                        playBtn.querySelector('i').classList.remove('fa-pause');
-                                        playBtn.querySelector('i').classList.add('fa-play');
-                                    });
-                                });
-                            </script>
                         </div>
                         <div class="track-list">
                             <table>
@@ -149,67 +67,17 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> 下载歌单</a> -->
                     </div>
-                </div><script>
+                </div>
 
-document.addEventListener('DOMContentLoaded', function() {
-    const enPlayBtn = document.getElementById('en-play-btn');
-    const cnPlayBtn = document.getElementById('chinese-play-btn');
-    const audio = document.getElementById('audio-player');
-    const defaultEnSong = "Lie - NF";
-    const enSongPath = songMap[defaultEnSong];
-
-   
-    function isEnglishSongPlaying() {
-        return decodeURIComponent(audio.src).endsWith(enSongPath);
-    }
-
-    enPlayBtn.addEventListener('click', function() {
-        if (!isEnglishSongPlaying()) {
-          
-            audio.src = enSongPath;
-            audio.style.display = 'block';
-            cnPlayBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
-            audio.play();
-        } else if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
-        }
-    });
-
-
-    const updateEnButton = () => {
-        const icon = enPlayBtn.querySelector('i');
-        if (isEnglishSongPlaying()) {
-            icon.classList.toggle('fa-play', audio.paused);
-            icon.classList.toggle('fa-pause', !audio.paused);
-        } else {
-            icon.classList.replace('fa-pause', 'fa-play');
-        }
-    };
-
-
-    ['play', 'pause', 'ended'].forEach(event => {
-        audio.addEventListener(event, () => {
-            updateEnButton();
-            if (event === 'play' && !decodeURIComponent(audio.src).endsWith(songMap["逆战 - 张杰"])) {
-                cnPlayBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
-            }
-        });
-    });
-});
-</script>
-
-                        <!-- 英文歌单 -->
+                <!-- 英文歌单 -->
                 <div class="playlist-card fade-in delay-1">
                     <div class="card-header english-header">
                         <h3><i class="fas fa-globe-americas"></i> Global Beats</h3>
                     </div>
                     <div class="card-content">
                         <div class="cover-container">
-                            <img src="images\微信图片_20250611201823.jpg" alt="英文歌单封面" class="playlist-cover">
+                            <img src="images/微信图片_20250611201823.jpg" alt="英文歌单封面" class="playlist-cover">
                             <div class="play-btn" id="en-play-btn" style="cursor: pointer;">
                                 <i class="fas fa-play"></i>
                             </div>
@@ -220,13 +88,14 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <tr><td>1. Lie - NF</td><td>BPM 95</td></tr>
                                     <tr><td>2. Call You Tonight - Whitney Houston</td><td>BPM 102</td></tr>
                                     <tr><td>3. iPad - The Chainsmokers</td><td>BPM 122</td></tr>
-                                    <tr><td>4. Don’t Wake Me Up - Jonas Blue</td><td>BPM 124</td></tr>
+                                    <tr><td>4. Don't Wake Me Up - Jonas Blue</td><td>BPM 124</td></tr>
                                     <tr><td>5. Ready Yet - Mokita</td><td>BPM 139</td></tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <section class="music-features container">
@@ -258,14 +127,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </main>
 
     <footer class="enhanced-footer">
-        <!-- 保持原有页脚结构 -->
-    </footer>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
-    
-<footer class="enhanced-footer">
         <div class="footer-content">
             <div class="footer-section about">
                 <h3><i class="fas fa-dumbbell"></i>Connect With Us</h3>
@@ -290,11 +151,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-section social">
                 <h3>Connect With Us</h3>
                 <div class="social-icons">
-                        <a href="weixin://dl/chat" class="social-icon"><i class="fab fa-weixin"></i></a>
-                        <a href="https://weibo.com/u/8005170072" target="_blank" class="social-icon"><i class="fab fa-weibo"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-qq"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    </div>
+                    <a href="weixin://dl/chat" class="social-icon"><i class="fab fa-weixin"></i></a>
+                    <a href="https://weibo.com/u/8005170072" target="_blank" class="social-icon"><i class="fab fa-weibo"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-qq"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
                 <p class="subscription">
                     <a href="contact.html#subscribe" class="subscribe-link">
                         <i class="fas fa-paper-plane"></i> Subscribe to Newsletter
@@ -309,7 +170,113 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <script src="js/script.js"></script>
     <script>
+        // 歌曲文件映射（示例，需替换为实际音频文件路径）
+        const songMap = {
+            // 中文歌单
+            "逆战 - 张杰": "audio/zhangjie-nizhan.mp3",
+            "龙拳 - 周杰伦": "audio/zhoujielun-longquan.mp3",
+            "孤勇者 - 陈奕迅": "audio/chenyixun-guyongzhe.mp3",
+            "倔强 - 五月天": "audio/mayday-juejiang.mp3",
+            "相信自己 - 零点乐队": "audio/lingdian-xiangxin.mp3",
+            // 英文歌单
+            "Lie - NF": "audio/NF - Lie.mp3",
+            "Call You Tonight - Whitney Houston": "audio/Whitney Houston - Call You Tonight.mp3",
+            "iPad - The Chainsmokers": "audio/The Chainsmokers - iPad.mp3",
+            "Don't Wake Me Up - Jonas Blue": "audio/Jonas Blue - Don't Wake Me Up.mp3",
+            "Ready Yet - Mokita": "audio/Mokita - Ready Yet.mp3"
+        };
+
         document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('audio-player');
+            const chinesePlayBtn = document.getElementById('chinese-play-btn');
+            const enPlayBtn = document.getElementById('en-play-btn');
+            
+            // 默认歌曲
+            const defaultChineseSong = "逆战 - 张杰";
+            const defaultEnSong = "Lie - NF";
+
+            // 中文歌单播放按钮
+            chinesePlayBtn.addEventListener('click', function() {
+                const songPath = songMap[defaultChineseSong];
+                if (audio.src.indexOf(songPath) === -1) {
+                    audio.src = songPath;
+                    audio.style.display = 'block';
+                    enPlayBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
+                    audio.play().catch(e => {
+                        console.log('播放失败:', e);
+                        alert('音频文件未找到或无法播放');
+                    });
+                } else if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            });
+
+            // 英文歌单播放按钮
+            enPlayBtn.addEventListener('click', function() {
+                const songPath = songMap[defaultEnSong];
+                if (audio.src.indexOf(songPath) === -1) {
+                    audio.src = songPath;
+                    audio.style.display = 'block';
+                    chinesePlayBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
+                    audio.play().catch(e => {
+                        console.log('播放失败:', e);
+                        alert('音频文件未找到或无法播放');
+                    });
+                } else if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            });
+
+            // 歌曲名单元格绑定点击事件
+            document.querySelectorAll('.track-list table td:first-child').forEach(td => {
+                td.style.cursor = 'pointer';
+                td.style.color = '#007bff';
+                td.addEventListener('click', function() {
+                    const songName = td.textContent.replace(/^\d+\.\s*/, '');
+                    const audioSrc = songMap[songName];
+                    if (audioSrc) {
+                        audio.src = audioSrc;
+                        audio.style.display = 'block';
+                        audio.play().catch(e => {
+                            console.log('播放失败:', e);
+                            alert('音频文件未找到或无法播放');
+                        });
+                    } else {
+                        alert('音频文件未找到');
+                    }
+                });
+            });
+
+            // 音频播放状态同步按钮图标
+            audio.addEventListener('play', function() {
+                const currentSrc = decodeURIComponent(audio.src);
+                if (currentSrc.endsWith(songMap[defaultChineseSong])) {
+                    chinesePlayBtn.querySelector('i').classList.replace('fa-play', 'fa-pause');
+                    enPlayBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
+                } else if (currentSrc.endsWith(songMap[defaultEnSong])) {
+                    enPlayBtn.querySelector('i').classList.replace('fa-play', 'fa-pause');
+                    chinesePlayBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
+                }
+            });
+
+            audio.addEventListener('pause', function() {
+                const currentSrc = decodeURIComponent(audio.src);
+                if (currentSrc.endsWith(songMap[defaultChineseSong])) {
+                    chinesePlayBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
+                } else if (currentSrc.endsWith(songMap[defaultEnSong])) {
+                    enPlayBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
+                }
+            });
+
+            audio.addEventListener('ended', function() {
+                chinesePlayBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
+                enPlayBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
+            });
+
             // 渐显动画效果
             const fadeElements = document.querySelectorAll('.fade-in');
             

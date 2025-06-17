@@ -50,7 +50,7 @@ public class UserDao {
     }
 
     public Optional<User> findByUserId(Integer userId) {
-        String sql = "SELECT * FROM users WHERE user_id = ? AND status = 'active'";
+        String sql = "SELECT * FROM users WHERE user_id = ?";
         List<User> users = jdbcTemplate.query(sql, userRowMapper, userId);
         return users.isEmpty() ? Optional.empty() : Optional.of(users.get(0));
     }

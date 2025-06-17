@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员后台</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/data.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .admin-section {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(102,126,234,0.10);
+            padding: 32px 24px;
+            margin: 32px 0;
+        }
+        .admin-section h2 {
+            font-size: 1.4rem;
+            color: #667eea;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .admin-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: #fafbff;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+        .admin-table th, .admin-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+            white-space: nowrap;
+        }
+        .admin-table th {
+            background: #f3f6fd;
+            color: #333;
+            font-weight: 700;
+        }
+        .admin-table tr:hover {
+            background: #f8f9fa;
+        }
+        .admin-btn {
+            padding: 6px 14px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 0 4px;
+            transition: all 0.2s;
+        }
+        .admin-btn.edit { background: #667eea; color: #fff; }
+        .admin-btn.delete { background: #ff6b6b; color: #fff; }
+        .admin-btn.role { background: #ffd43b; color: #333; }
+        .admin-btn.edit:hover { background: #5a6fd6; }
+        .admin-btn.delete:hover { background: #ff5252; }
+        .admin-btn.role:hover { background: #ffe066; }
+    </style>
+</head>
+<body>
+<script>
+window.addEventListener('load', function() {
+    const user = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+    if (!user || !token) {
+        window.location.href = 'login.html';
+        return;
+    }
+    fetch('/api/auth/validate', {
+        headers: { 'Authorization': 'Bearer ' + token }
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (!data.success) {
+            window.location.href = 'login.html';
+        } else {
+            try {
+                const userObj = JSON.parse(user);
+                if (userObj.userRole !== '管理员') {
+                    window.location.href = 'login.html';
+                }
+            } catch {
+                window.location.href = 'login.html';
+            }
+        }
+    })
+    .catch(() => {
+        window.location.href = 'login.html';
+    });
+});
+</script>
+    <header class="main-header">
+        <div class="logo">
+            <h1><i class="fas fa-user-shield"></i> 管理员后台</h1>
+        </div>
+        <button id="logout-btn" style="position:absolute;right:40px;top:24px;padding:8px 18px;border-radius:6px;background:#ff6b6b;color:#fff;border:none;cursor:pointer;font-weight:600;font-size:1rem;">退出登录</button>
+    </header>
+    <main class="container">
+        <section class="admin-section" id="user-management">
+            <h2><i class="fas fa-users-cog"></i> 用户管理</h2>
+            <table class="admin-table" id="user-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>用户名</th>
+                        <th>姓名</th>
+                        <th>邮箱</th>
+                        <th>角色</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 用户数据由JS动态渲染 -->
+                </tbody>
+            </table>
+        </section>
+        <section class="admin-section" id="data-management">
+            <h2><i class="fas fa-database"></i> 数据管理</h2>
+            <table class="admin-table" id="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>用户</th>
+                        <th>日期</th>
+                        <th>体重</th>
+                        <th>睡眠</th>
+                        <th>饮水</th>
+                        <th>步数</th>
+                        <th>心情</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 数据由JS动态渲染 -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="js/admin.js"></script>
+    <script>
+    document.getElementById('logout-btn').onclick = function() {
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        window.location.href = 'login.html';
+    };
+    </script>
+</body>
+</html> 

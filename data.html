@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>健身打卡系统 - 个人数据</title>
+    <title>Fitness</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/data.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -250,7 +250,7 @@
         }
 
         .user-info {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6692ea 0%, #764ba2 100%);
             color: white;
             padding: 20px;
             border-radius: 15px;
@@ -493,17 +493,17 @@
     </style>
 </head>
 <body>
-    <header class="main-header">
+   <header class="main-header">
         <div class="logo">
-            <h1><i class="fas fa-dumbbell"></i> 健身打卡系统</h1>
+            <h1><i class="fas fa-dumbbell"></i>Fitness</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="music.html">音乐</a></li>
-                <li><a href="contact.html">健身资讯</a></li>
-                <li><a href="data.html" class="active">个人数据</a></li>
-                <li><a href="study.html">学习</a></li>
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="contact.html">Fitness News</a></li>
+                <li><a href="data.html" class="active">Data Analysis</a></li>
+                <li><a href="study.html">Studies</a></li>
             </ul>
         </nav>
         <div class="menu-toggle">
@@ -663,8 +663,8 @@
     <footer class="enhanced-footer">
         <div class="footer-content">
             <div class="footer-section about">
-                <h3><i class="fas fa-dumbbell"></i>联系我们</h3>
-                <p>如果您有好的想法，欢迎发送给我们</p>
+                <h3><i class="fas fa-dumbbell"></i>Connect With Us</h3>
+                <p>If you have some good idea Welcome to send things to me</p>
                 <div class="contact">
                     <p><i class="fas fa-envelope"></i> 3020385272@qq.com</p>
                     <p><i class="fas fa-phone"></i>133****6051</p>
@@ -672,36 +672,35 @@
             </div>
             
             <div class="footer-section links">
-                <h3>快速链接</h3>
+                <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="music.html">音乐</a></li>
-                    <li><a href="contact.html">健身资讯</a></li>
-                    <li><a href="data.html">个人数据</a></li>
-                    <li><a href="study.html">学习</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="contact.html">Fitness News</a></li>
+                    <li><a href="data.html">Data Analysis</a></li>
+                    <li><a href="study.html">Studies</a></li>
                 </ul>
             </div>
             
             <div class="footer-section social">
-                <h3>关注我们</h3>
+                <h3>Connect With Us</h3>
                 <div class="social-icons">
-                    <a href="weixin://dl/chat" class="social-icon"><i class="fab fa-weixin"></i></a>
-                    <a href="https://weibo.com/u/8005170072" target="_blank" class="social-icon"><i class="fab fa-weibo"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-qq"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                </div>
+                        <a href="weixin://dl/chat" class="social-icon"><i class="fab fa-weixin"></i></a>
+                        <a href="https://weibo.com/u/8005170072" target="_blank" class="social-icon"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-qq"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
                 <p class="subscription">
                     <a href="contact.html#subscribe" class="subscribe-link">
-                        <i class="fas fa-paper-plane"></i> 订阅新闻
+                        <i class="fas fa-paper-plane"></i> Subscribe to Newsletter
                     </a>
                 </p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy;2025 激励自己锻炼，努力工作，创造奇迹。</p>
+            <p>&copy;2025 inspire yourself to workout, work hard, work wonders.</p>
         </div>
     </footer>
-
     <script src="js/script.js"></script>
     <script>
         // 全局变量
@@ -811,20 +810,36 @@
             
             checkinData.forEach(checkin => {
                 const row = document.createElement('tr');
+                // 日期兼容 checkin_date/checkinDate
+                const date = checkin.checkin_date || checkin.checkinDate;
+                // 睡眠兼容 sleep_hours/sleepHours
+                const sleep = checkin.sleep_hours ?? checkin.sleepHours;
+                // 饮水兼容 water_cups/waterCups
+                const water = checkin.water_cups ?? checkin.waterCups;
+                // 步数兼容 steps
+                const steps = checkin.steps ?? checkin.Steps;
+                // 体重兼容 weight
+                const weight = checkin.weight ?? checkin.Weight;
+                // 完成计划兼容 completed_plan_today/completedPlanToday
+                const plan = checkin.completed_plan_today ?? checkin.completedPlanToday;
+                // 备注兼容 general_notes/generalNotes
+                const notes = checkin.general_notes ?? checkin.generalNotes;
+                // id兼容 checkin_id/checkinId
+                const checkinId = checkin.checkin_id ?? checkin.checkinId;
                 row.innerHTML = `
-                    <td>${new Date(checkin.checkin_date).toLocaleDateString('zh-CN')}</td>
-                    <td>${checkin.weight || '-'}</td>
-                    <td>${checkin.sleep_hours || '-'}</td>
-                    <td>${checkin.water_cups || '-'}</td>
-                    <td>${checkin.steps || '-'}</td>
+                    <td>${date ? new Date(date).toLocaleDateString('zh-CN') : '-'}</td>
+                    <td>${weight !== undefined && weight !== null && weight !== '' ? weight : '-'}</td>
+                    <td>${sleep !== undefined && sleep !== null && sleep !== '' ? sleep : '-'}</td>
+                    <td>${water !== undefined && water !== null && water !== '' ? water : '-'}</td>
+                    <td>${steps !== undefined && steps !== null && steps !== '' ? steps : '-'}</td>
                     <td>${getMoodText(checkin.mood)}</td>
-                    <td>${checkin.completed_plan_today ? '是' : '否'}</td>
-                    <td>${checkin.general_notes || '-'}</td>
+                    <td>${plan === true || plan === 1 ? '是' : '否'}</td>
+                    <td>${notes !== undefined && notes !== null && notes !== '' ? notes : '-'}</td>
                     <td>
-                        <button onclick="editCheckin(${checkin.checkin_id})" class="btn-edit">
+                        <button onclick="editCheckin(${checkinId})" class="btn-edit">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <button onclick="deleteCheckin(${checkin.checkin_id})" class="btn-delete">
+                        <button onclick="deleteCheckin(${checkinId})" class="btn-delete">
                             <i class="fas fa-trash"></i>
                         </button>
                     </td>
@@ -863,20 +878,19 @@
                 console.error('找不到weight-chart元素');
                 return;
             }
-            
             const weightData = checkinData
-                .filter(c => c.weight)
-                .sort((a, b) => new Date(a.checkin_date) - new Date(b.checkin_date));
-            
-            console.log('体重数据:', weightData);
-            
+                .filter(c => (c.weight ?? c.weight) !== null && (c.weight ?? c.weight) !== undefined)
+                .sort((a, b) => new Date(a.checkin_date || a.checkinDate) - new Date(b.checkin_date || b.checkinDate));
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: weightData.length > 0 ? weightData.map(c => new Date(c.checkin_date).toLocaleDateString('zh-CN')) : ['暂无数据'],
+                    labels: weightData.length > 0 ? weightData.map(c => {
+                        const d = c.checkin_date || c.checkinDate;
+                        return d ? new Date(d).toLocaleDateString('zh-CN') : '-';
+                    }) : ['暂无数据'],
                     datasets: [{
                         label: '体重 (kg)',
-                        data: weightData.length > 0 ? weightData.map(c => c.weight) : [0],
+                        data: weightData.length > 0 ? weightData.map(c => c.weight ?? c.weight) : [0],
                         borderColor: '#667eea',
                         backgroundColor: 'rgba(102, 126, 234, 0.1)',
                         tension: 0.4
@@ -885,16 +899,8 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false
-                        }
-                    }
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: false } }
                 }
             });
         }
@@ -906,20 +912,22 @@
                 console.error('找不到sleep-chart元素');
                 return;
             }
-            
             const sleepData = checkinData
-                .filter(c => c.sleep_hours)
-                .sort((a, b) => new Date(a.checkin_date) - new Date(b.checkin_date));
-            
-            console.log('睡眠数据:', sleepData);
-            
+                .filter(c => {
+                    const sleep = c.sleep_hours ?? c.sleepHours;
+                    return sleep !== null && sleep !== undefined;
+                })
+                .sort((a, b) => new Date(a.checkin_date || a.checkinDate) - new Date(b.checkin_date || b.checkinDate));
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: sleepData.length > 0 ? sleepData.map(c => new Date(c.checkin_date).toLocaleDateString('zh-CN')) : ['暂无数据'],
+                    labels: sleepData.length > 0 ? sleepData.map(c => {
+                        const d = c.checkin_date || c.checkinDate;
+                        return d ? new Date(d).toLocaleDateString('zh-CN') : '-';
+                    }) : ['暂无数据'],
                     datasets: [{
                         label: '睡眠时长 (小时)',
-                        data: sleepData.length > 0 ? sleepData.map(c => c.sleep_hours) : [0],
+                        data: sleepData.length > 0 ? sleepData.map(c => c.sleep_hours ?? c.sleepHours) : [0],
                         borderColor: '#764ba2',
                         backgroundColor: 'rgba(118, 75, 162, 0.1)',
                         tension: 0.4
@@ -928,16 +936,8 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false
-                        }
-                    }
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: false } }
                 }
             });
         }
@@ -959,7 +959,10 @@
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: stepsData.length > 0 ? stepsData.map(c => new Date(c.checkin_date).toLocaleDateString('zh-CN')) : ['暂无数据'],
+                    labels: stepsData.length > 0 ? stepsData.map(c => {
+                        const d = c.checkin_date || c.checkinDate;
+                        return d ? new Date(d).toLocaleDateString('zh-CN') : '-';
+                    }) : ['暂无数据'],
                     datasets: [{
                         label: '步数',
                         data: stepsData.length > 0 ? stepsData.map(c => c.steps) : [0],
@@ -1040,20 +1043,22 @@
                 console.error('找不到water-chart元素');
                 return;
             }
-            
             const waterData = checkinData
-                .filter(c => c.water_cups)
-                .sort((a, b) => new Date(a.checkin_date) - new Date(b.checkin_date));
-            
-            console.log('饮水量数据:', waterData);
-            
+                .filter(c => {
+                    const water = c.water_cups ?? c.waterCups;
+                    return water !== null && water !== undefined;
+                })
+                .sort((a, b) => new Date(a.checkin_date || a.checkinDate) - new Date(b.checkin_date || b.checkinDate));
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: waterData.length > 0 ? waterData.map(c => new Date(c.checkin_date).toLocaleDateString('zh-CN')) : ['暂无数据'],
+                    labels: waterData.length > 0 ? waterData.map(c => {
+                        const d = c.checkin_date || c.checkinDate;
+                        return d ? new Date(d).toLocaleDateString('zh-CN') : '-';
+                    }) : ['暂无数据'],
                     datasets: [{
                         label: '饮水量 (杯)',
-                        data: waterData.length > 0 ? waterData.map(c => c.water_cups) : [0],
+                        data: waterData.length > 0 ? waterData.map(c => c.water_cups ?? c.waterCups) : [0],
                         backgroundColor: '#74c0fc',
                         borderColor: '#74c0fc',
                         borderWidth: 1
@@ -1062,16 +1067,8 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true } }
                 }
             });
         }
@@ -1083,20 +1080,22 @@
                 console.error('找不到plan-chart元素');
                 return;
             }
-            
             const planData = checkinData
-                .filter(c => c.completed_plan_today !== null)
-                .sort((a, b) => new Date(a.checkin_date) - new Date(b.checkin_date));
-            
-            console.log('训练计划完成情况数据:', planData);
-            
+                .filter(c => {
+                    const plan = c.completed_plan_today ?? c.completedPlanToday;
+                    return plan !== null && plan !== undefined;
+                })
+                .sort((a, b) => new Date(a.checkin_date || a.checkinDate) - new Date(b.checkin_date || b.checkinDate));
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: planData.length > 0 ? planData.map(c => new Date(c.checkin_date).toLocaleDateString('zh-CN')) : ['暂无数据'],
+                    labels: planData.length > 0 ? planData.map(c => {
+                        const d = c.checkin_date || c.checkinDate;
+                        return d ? new Date(d).toLocaleDateString('zh-CN') : '-';
+                    }) : ['暂无数据'],
                     datasets: [{
                         label: '训练计划完成情况',
-                        data: planData.length > 0 ? planData.map(c => c.completed_plan_today ? 1 : 0) : [0],
+                        data: planData.length > 0 ? planData.map(c => (c.completed_plan_today ?? c.completedPlanToday) ? 1 : 0) : [0],
                         backgroundColor: '#ffd43b',
                         borderColor: '#ffd43b',
                         borderWidth: 1
@@ -1105,16 +1104,8 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true } }
                 }
             });
         }

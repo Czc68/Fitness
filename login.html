@@ -194,13 +194,17 @@
             .then(data => {
                 if (data.success) {
                     showMessage('success', '登录成功！正在跳转...');
-                    // 存储用户信息
-                    localStorage.setItem('user', JSON.stringify(data.user));
+                    // 强制刷新user信息
+                    const userObj = data.user || {};
+                    localStorage.setItem('user', JSON.stringify(userObj));
                     localStorage.setItem('token', data.token);
-                    
-                    // 跳转到数据页面
                     setTimeout(() => {
-                        window.location.href = 'data.html';
+                        const role = userObj.userRole || '';
+                        if (role === '管理员') {
+                            window.location.href = 'admin.html';
+                        } else {
+                            window.location.href = 'data.html';
+                        }
                     }, 1500);
                 } else {
                     showMessage('error', data.message || '登录失败，请检查用户名和密码');
@@ -238,9 +242,30 @@
 
         // 检查是否已经登录
         window.addEventListener('load', function() {
+            const user = localStorage.getItem('user');
             const token = localStorage.getItem('token');
-            if (token) {
-                window.location.href = 'data.html';
+            if (user && token) {
+                fetch('/api/auth/validate', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        try {
+                            const userObj = JSON.parse(user);
+                            const role = userObj.userRole || '';
+                            if (role === '管理员') {
+                                window.location.href = 'admin.html';
+                            } else {
+                                window.location.href = 'data.html';
+                            }
+                        } catch {
+                            window.location.href = 'data.html';
+                        }
+                    }
+                    // token无效则停留在登录页
+                })
+                .catch(() => {});
             }
         });
     </script>

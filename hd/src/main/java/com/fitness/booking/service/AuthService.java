@@ -83,4 +83,12 @@ public class AuthService {
         }
         return Optional.empty();
     }
+
+    public String getUserRoleFromToken(String token) {
+        Integer userId = getUserIdFromToken(token);
+        if (userId == null) return null;
+        return userDao.findByUserId(userId)
+                .map(com.fitness.booking.model.User::getUserRole)
+                .orElse(null);
+    }
 } 
